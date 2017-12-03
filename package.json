@@ -1,0 +1,16 @@
+{
+  "name": "schemosaurus",
+  "version": "0.0.0",
+  "description": "Async scheme validator for Node and Modern web",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "schema",
+    "validator"
+  ],
+  "author": "Klemen Kogovsek <klemen.kogovsek1@gmail.com>",
+  "license": "ISC"
+}
