@@ -199,10 +199,11 @@ validator(0) // False
 ```
 
 # Future
-[ ] Make it availivle on npm
-[ ] Standardize outputs and check types to gain percision and predictability
-[ ] Make it browser compatible as well
-[ ] Get som badass logo
-[ ] Online examples in sandboxes
-[ ] CI for test automation
-[ ] ...
+
+[  ] Make it availivle on npm
+[  ] Standardize outputs and check types to gain percision and predictability
+[  ] Make it browser compatible as well
+[  ] Get som badass logo
+[  ] Online examples in sandboxes
+[  ] CI for test automation
+[  ] ...
