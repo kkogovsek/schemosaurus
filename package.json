@@ -12,5 +12,8 @@
     "validator"
   ],
   "author": "Klemen Kogovsek <klemen.kogovsek1@gmail.com>",
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.24.0"
+  }
 }
