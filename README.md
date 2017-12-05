@@ -159,6 +159,9 @@ produce validator/transformer but you can pass in next validator.
 ## STRING
 Converts input to string and calls next validator
 ```js
+const schemosaurus = require('schemosaurus')
+const { STRING } = schemosaurus.types
+
 const validate = schemosaurus(STRING())
 const myFoo = validate('bar') // Becomes bar
 ```
@@ -167,6 +170,9 @@ const myFoo = validate('bar') // Becomes bar
 Validates input as numbers and if it's not null or undefined it throws an error
 if it can't enumerate input.
 ```js
+const schemosaurus = require('schemosaurus')
+const { NUMBER } = schemosaurus.types
+
 const validate = schemosaurus(NUMBER())
 const myBar = validate('1.234') // Becomes 1.234 as number
 ```
@@ -177,6 +183,9 @@ If nothing is passed it just validates that it got an object and returns it.
 If you add a validator it must be consisted of keys, you want to validate and
 validator calls for them. Example:
 ```js
+const schemosaurus = require('schemosaurus')
+const { OBJECT, STRING, NUMBER } = schemosaurus.types
+
 const schema = schemosaurus(OBJECT({
   foo: STRING(),
   bar: NUMBER()
@@ -190,6 +199,9 @@ const myRealFooBar = schema({ foo: 'foo', bar: 1.23 })
 Validates that imput is an array and maps each part of an array to next validator
 asynchroniously. Example:
 ```js
+const schemosaurus = require('schemosaurus')
+const { ARRAY, OBJECT, STRING, NUMBER } = schemosaurus.types
+
 const schema = schemosaurus(ARRAY(OBJECT({
   foo: STRING(),
   bar: NUMBER()
@@ -207,6 +219,9 @@ const myFooBars = schema([{
 ## BOOLEAN
 Always evaluates content as thruthy or falsy. So:
 ```js
+const schemosaurus = require('schemosaurus')
+const { BOOLEAN } = schemosaurus.types
+
 const validator = BOOLEAN()
 validator(true) // True
 validator(1) // True
