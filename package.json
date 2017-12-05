@@ -1,6 +1,6 @@
 {
   "name": "schemosaurus",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Async scheme validator for Node and Modern web",
   "main": "src/index.js",
   "scripts": {
