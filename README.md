@@ -31,7 +31,7 @@ const ensureArray = val => Array.isArray(val) ? val : [val]
 
 Or if you have an object with properties *foo* and *bar* you would ensure it
 with:
-```
+```js
 const ensureFooBar = ({ foo, bar }) => ({ foo, bar })
 ensureFooBar({ foo: 'foo', bar: 1, nonFooBar: 'test' })
 // Where output would be { foo: 'foo', bar: 1 }
@@ -158,10 +158,18 @@ produce validator/transformer but you can pass in next validator.
 
 ## STRING
 Converts input to string and calls next validator
+```js
+const validate = schemosaurus(STRING())
+const myFoo = validate('bar') // Becomes bar
+```
 
 ## NUMBER
 Validates input as numbers and if it's not null or undefined it throws an error
 if it can't enumerate input.
+```js
+const validate = schemosaurus(NUMBER())
+const myBar = validate('1.234') // Becomes 1.234 as number
+```
 
 ## OBJECT
 If nothing is passed it just validates that it got an object and returns it.
@@ -169,20 +177,31 @@ If nothing is passed it just validates that it got an object and returns it.
 If you add a validator it must be consisted of keys, you want to validate and
 validator calls for them. Example:
 ```js
-OBJECT({
+const schema = schemosaurus(OBJECT({
   foo: STRING(),
   bar: NUMBER()
-})
+}))
+const myFooBar = schema({ foo: 'foo', bar: 'bar' }) // Throws TypeError
+const myRealFooBar = schema({ foo: 'foo', bar: 1.23 })
+// Becomes { foo: 'foo', bar: 1.23 }
 ```
 
 ## ARRAY
 Validates that imput is an array and maps each part of an array to next validator
 asynchroniously. Example:
 ```js
-ARRAY(OBJECT({
+const schema = schemosaurus(ARRAY(OBJECT({
   foo: STRING(),
   bar: NUMBER()
-}))
+})))
+const myFooBars = schema([{
+  foo: 'test',
+  bar: 1
+  }, {
+  foo: 'test1',
+  bar: '1.23'
+}])
+// Which returns: [{ foo: 'test', bar: 1 }, { foo: 'test1', bar: 1.23 }]
 ```
 
 ## BOOLEAN
